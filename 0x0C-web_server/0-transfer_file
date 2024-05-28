@@ -1,27 +1,26 @@
-  1 #!/usr/bin/env bash
-  2 # checking for command line argument 
-  3 
-  4 if [ $# -lt 4 ]
-  5 then    
-  6         echo"usege: 0-transfer-file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-  7         exit 1
-  8 fi      
-  9 
- 10 # assigning paramentals to variables
- 11 
- 12 path_to_file=$1
- 13 ip=$2
- 14 username=$3
- 15 path_to_ssh_key=$4
- 16 
- 17 # deaseblering strick host key checking 
- 18 
- 19 scp -o "stricthostkeycheking" -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
- 20 
- 21 # checking if the transfer is successful
- 22 if [ $7 -eq 0]
- 23 then
- 24         echo"file was transfered successfully"
- 25 else    
- 26         echo"file transfer failed"
- 27 fi
+#!/usr/bin/env bash
+# checking for command line argument
+   
+if [ $# -lt 4 ]
+then    
+        echo"usege: 0-transfer-file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+ exit 1
+ fi      
+  
+ # assigning paramentals to variables
+ path_to_file=$1
+ip=$2
+username=$3
+path_to_ssh_key=$4
+ 
+# deaseblering strick host key checking 
+ 
+scp -o "stricthostkeycheking" -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
+
+# checking if the transfer is successful
+if [ $7 -eq 0]
+then
+      echo"file was transfered successfully"
+else    
+      echo"file transfer failed"
+ fi
